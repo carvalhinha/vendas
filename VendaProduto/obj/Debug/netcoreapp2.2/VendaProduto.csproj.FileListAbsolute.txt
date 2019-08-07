@@ -1,0 +1,11 @@
+C:\Users\Treinamento 3\source\repos\VendaProduto\VendaProduto\bin\Debug\netcoreapp2.2\VendaProduto.deps.json
+C:\Users\Treinamento 3\source\repos\VendaProduto\VendaProduto\bin\Debug\netcoreapp2.2\VendaProduto.runtimeconfig.json
+C:\Users\Treinamento 3\source\repos\VendaProduto\VendaProduto\bin\Debug\netcoreapp2.2\VendaProduto.runtimeconfig.dev.json
+C:\Users\Treinamento 3\source\repos\VendaProduto\VendaProduto\bin\Debug\netcoreapp2.2\VendaProduto.dll
+C:\Users\Treinamento 3\source\repos\VendaProduto\VendaProduto\bin\Debug\netcoreapp2.2\VendaProduto.pdb
+C:\Users\Treinamento 3\source\repos\VendaProduto\VendaProduto\obj\Debug\netcoreapp2.2\VendaProduto.csprojAssemblyReference.cache
+C:\Users\Treinamento 3\source\repos\VendaProduto\VendaProduto\obj\Debug\netcoreapp2.2\VendaProduto.csproj.CoreCompileInputs.cache
+C:\Users\Treinamento 3\source\repos\VendaProduto\VendaProduto\obj\Debug\netcoreapp2.2\VendaProduto.AssemblyInfoInputs.cache
+C:\Users\Treinamento 3\source\repos\VendaProduto\VendaProduto\obj\Debug\netcoreapp2.2\VendaProduto.AssemblyInfo.cs
+C:\Users\Treinamento 3\source\repos\VendaProduto\VendaProduto\obj\Debug\netcoreapp2.2\VendaProduto.dll
+C:\Users\Treinamento 3\source\repos\VendaProduto\VendaProduto\obj\Debug\netcoreapp2.2\VendaProduto.pdb
