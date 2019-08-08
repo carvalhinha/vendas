@@ -7,7 +7,7 @@ namespace VendaProduto
 {
     class Produto
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string NomeProduto { get; set; }
         public double Valor { get; set; }
         public int Quantidade { get; set; }
@@ -16,7 +16,7 @@ namespace VendaProduto
         {
         }
 
-        public Produto(string id, string nomeProduto, int valor, int quantidade)
+        public Produto(int id, string nomeProduto, int valor, int quantidade)
         {
             Id = id;
             NomeProduto = nomeProduto;
@@ -26,9 +26,10 @@ namespace VendaProduto
 
         public void dadosProduto()
         {
-            Console.Write("Digite o Id do Produto: ");
-            Id = Console.ReadLine();
-            Console.Write("digite o nome do Produto: ");
+            Random rnd = new Random();
+            Id = rnd.Next(100, 999);
+            Console.Write($"Digite o Id do Produto: {Id}");            
+            Console.Write("\ndigite o nome do Produto: ");
             NomeProduto = Console.ReadLine();
             Console.Write($"Digite o valor do(a) {NomeProduto} R$: ");
             Valor = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
@@ -39,7 +40,7 @@ namespace VendaProduto
 
         public override string ToString()
         {
-            return $"Id: {Id} - nome: {NomeProduto} - valor: {Valor} - quantidade: {Quantidade}";
+            return $"Id: {Id} - nome: {NomeProduto} - valor: {Valor.ToString("f2", CultureInfo.InvariantCulture)} - quantidade: {Quantidade}";
         }
     }
 }

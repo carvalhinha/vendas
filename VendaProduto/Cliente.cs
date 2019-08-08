@@ -6,14 +6,14 @@ namespace VendaProduto
 {
     class Cliente
     {
-        public string IdCliente { get; set; }
+        public int IdCliente { get; set; }
         public string NomeCliente { get; set; }
 
         public Cliente()
         {
         }
 
-        public Cliente(string id, string nomeCliente)
+        public Cliente(int id, string nomeCliente)
         {
             IdCliente = id;
             NomeCliente = nomeCliente;
@@ -21,9 +21,10 @@ namespace VendaProduto
 
         public void DadosCliente()
         {
-            Console.Write("Digite o Id do cliente: ");
-            IdCliente = Console.ReadLine();
-            Console.Write("digite o nome do cliente: ");
+            Random rnd = new Random();
+            IdCliente = rnd.Next(10, 99);
+            Console.Write($"Digite o Id do cliente: {IdCliente}");
+            Console.Write("\ndigite o nome do cliente: ");
             NomeCliente = Console.ReadLine();
             Console.WriteLine();
         }
