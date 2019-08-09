@@ -11,7 +11,7 @@ namespace VendaProduto
         public int IdPedido { get; set; }
         public string Data { get; set; }
         public double ValorTotal { get; set; }
-        public int idC { get; set; }
+        public int idCliente { get; set; }
 
         public Pedido()
         {
@@ -22,15 +22,15 @@ namespace VendaProduto
             IdPedido = idPedido;
             Data = data;
             ValorTotal = valorTotal;
-            idC = idc;
+            idCliente = idc;
         }
 
-       
+
         public void DadosPedido(List<Produto> produtos, List<Cliente> cliente)
         {
             Random rnd = new Random();
             double valorFinal = 0, va = 0;
-            int quant = 0, q = 0, idPro;
+            int quant = 0, idPro;
             IdPedido = rnd.Next(1000, 9999);
             Console.Write($"Digite o Id do pedido: {IdPedido}");
 
@@ -42,21 +42,26 @@ namespace VendaProduto
                 Console.WriteLine($"Nome do cliente: {c.NomeCliente} - Id do cliente: {c.IdCliente}");
             }
             Console.Write($"Id de um cliente: ");
-            idC = int.Parse(Console.ReadLine());
-            while (!(cliente.Exists(x => x.IdCliente == idC)))
+            idCliente = int.Parse(Console.ReadLine());
+            while (!(cliente.Exists(x => x.IdCliente == idCliente)))
             {
                 Console.Write("Digite um Id correto: ");
-                idC = int.Parse(Console.ReadLine());
+                idCliente = int.Parse(Console.ReadLine());
             }
-            if (cliente.Exists(x => x.IdCliente == idC))
+            if (cliente.Exists(x => x.IdCliente == idCliente))
             {
                 Console.WriteLine("--------Produtos:--------");
                 foreach (var p in produtos)
                 {
-                    Console.WriteLine($"Id do produto: {p.Id} - nome do produto: {p.NomeProduto} - valor do produto: {p.Valor} - quantidade do produto: {q = p.Quantidade}");
+                    Console.WriteLine($"Id do produto: {p.Id} - nome do produto: {p.NomeProduto} - valor do produto: {p.Valor} - quantidade do produto: {p.Quantidade}");
                 }
                 Console.Write("digite quantos produtos diferentes irá comprar: ");
                 var qntPro = int.Parse(Console.ReadLine());
+                while (qntPro > produtos.Count)
+                {
+                    Console.Write("digite quantos produtos diferentes irá comprar: ");
+                    qntPro = int.Parse(Console.ReadLine());
+                }
                 for (int i = 0; i < qntPro; i++)
                 {
                     Console.Write("digite o Id de um produto: ");
@@ -70,16 +75,19 @@ namespace VendaProduto
                     {
                         Console.Write("Digite a quantidade que deseja comprar desse produto: ");
                         quant = int.Parse(Console.ReadLine());
-                        while (quant <= 0 || quant > q)
+                        while(!(produtos.Exists(p => p.Quantidade > quant)))
                         {
                             Console.Write("Digite uma quantidade correta: ");
                             quant = int.Parse(Console.ReadLine());
                         }
-
+                        while (quant < 1)
+                        {
+                            Console.Write("Digite uma quantidade correta: ");
+                            quant = int.Parse(Console.ReadLine());
+                        }
+                        va = produtos.Sum(p => p.Valor);
+                        valorFinal = (va * quant);
                     }
-                    va = produtos.Sum(p => p.Valor);
-                    valorFinal = (va * quant);
-
                 }
 
                 if (valorFinal >= 100 && valorFinal < 300)
@@ -87,15 +95,15 @@ namespace VendaProduto
                 else if (valorFinal >= 300)
                     ValorTotal = valorFinal - (valorFinal * 10) / 100;
 
-                Console.WriteLine($"Compra do(a) cliente com Id: {idC} finalizada. ");
-                Console.WriteLine($"Cliente com Id: {idC} gastou R$ {ValorTotal.ToString("f2", CultureInfo.InvariantCulture)}");
+                Console.WriteLine($"Compra do(a) cliente com Id: {idCliente} finalizada. ");
+                Console.WriteLine($"Cliente com Id: {idCliente} gastou R$ {ValorTotal.ToString("f2", CultureInfo.InvariantCulture)}");
             }
 
         }
 
         public override string ToString()
         {
-            return $"Número do pedido: {IdPedido} - data do pedido: {Data} - Id do cliente: {idC} - Valor total da compra: {ValorTotal.ToString("f2", CultureInfo.InvariantCulture)}";
+            return $"Número do pedido: {IdPedido} - data do pedido: {Data} - Id do cliente: {idCliente} - Valor total da compra: {ValorTotal.ToString("f2", CultureInfo.InvariantCulture)}";
         }
     }
 }
